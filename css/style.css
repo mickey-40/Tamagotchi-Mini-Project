@@ -1,9 +1,30 @@
-body {
-  background-image:("../../img/spacebackground.jpg");
-
-  background-size: 100%;
-  
+body{
+  background-color: white; 
 }
+.lights-off {
+  background-color: darkblue;
+}
+nav {
+  background-color: beige;
+}
+
 img {
-  width: 50%;
+  width: 100%;
+}
+.backgroundCopyright {
+  position: absolute;
+  left: 0;
+  font-size: 10pt;
+}
+
+.copyRight {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  font-size: 8pt;
+}
+
+.imageContainer {
+  display: flex;
+
 }
