@@ -1,3 +1,9 @@
+body {
+  background-image: url(/Users/mickeyarnold/Desktop/sei-cosmos/projects/mini-project/Tamagotchi-Mini-Project/img/backgroundimg.jpg);
+
+  background-size: 100%;
+  
+}
 img {
-  width: 50%;
+  width: 100%;
 }
