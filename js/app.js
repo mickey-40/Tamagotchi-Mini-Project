@@ -13,10 +13,9 @@ class Pet {
     this.age += 1
     let element = document.querySelector('#puppyContainer')
     let element2 = document.querySelector('#dogContainer')
-    if (this.age === 5){
+    if (this.age === 6){
+      element.classList.remove('puppyMove')
       element.classList.add('turnoff')
-      element.classList.remove('puppymove')
-      element2.classList.add('dogMove')
       element2.classList.remove('turnoff')
 
       alert('Your puppy is now a dog!')
@@ -25,17 +24,22 @@ class Pet {
     
 
   }
-  hungerUp = () => {
-    if (this.hunger >= 10){
-      return alert('fainted of hunger')
+//function to increment hunger by 1 and stop the interval when reaches 10
+  hungerUp = () => {    
+    if (this.hunger >= 10) {
+      stopInterval()
+      alert('fainted')
     } else {
       this.hunger += 1
       document.querySelector('.hunger').innerText = `Hunger : ${this.hunger}`  
       
     }
   }
+
   sleepUp = () => {
+    
     if (this.sleepniness === 10){
+      stopInterval()
       return alert('fainted of sleepniness')
     } else {
       this.sleepniness += 1
@@ -45,6 +49,7 @@ class Pet {
   
   boredomUp = () => {
     if (this.boredom >= 10){
+      stopInterval()
       return alert('fainted of boredom')    
     } else {
       this.boredom += 1
@@ -57,9 +62,7 @@ class Pet {
 }
 
 //Require game object or class
-class game {
 
-}
 
 
 const myPet = new Pet()
@@ -67,11 +70,39 @@ document.querySelector('#start').addEventListener('click', function(){
   myPet.name = window.prompt("Enter your name: ")
   document.querySelector('h1').innerText = myPet.name
 
-  setInterval(myPet.ageUp, 1000)
-  setInterval(myPet.hungerUp, 2000)
-  setInterval(myPet.sleepUp, 2000)
-  setInterval(myPet.boredomUp, 3000)
+  startInterval()
+  // setInterval(myPet.ageUp, 1000)
+  // startHungerInterval()
+  // setInterval(myPet.sleepUp, 2000)
+  // setInterval(myPet.boredomUp, 3000)
 })
+//set element names to enable the ablity to start and stop the interval
+let hungerinterval;
+let ageInterval;
+let sleepInterval;
+let boredomInterval;
+//function to start the timed interval to increment the features
+const startInterval = () => {
+  hungerinterval = setInterval(myPet.hungerUp, 1000)
+  ageInterval = setInterval(myPet.ageUp, 1000)
+  sleepInterval = setInterval(myPet.sleepUp, 2000)
+  boredomInterval = setInterval(myPet.boredomUp, 3000)
+}
+//function to stop the timed interval when the pet faints
+const stopInterval = () => {
+  clearInterval(hungerinterval)
+  clearInterval(ageInterval)
+  clearInterval(sleepInterval)
+  clearInterval(boredomInterval)
+
+}
+// let hun;
+// const startHungerInterval = () => {
+//   hun = setInterval(myPet.hungerUp, 1000)
+// }
+// const stopHungerInterval = () => {
+//   clearInterval(hun)
+// }
 
 document.querySelector('#feed').addEventListener('click', function(){
   myPet.hunger -= 1
