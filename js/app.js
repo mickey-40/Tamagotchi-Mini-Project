@@ -13,8 +13,9 @@ class Pet {
     let element = document.querySelector('#puppyContainer')
     let element2 = document.querySelector('#dogContainer')
     if (this.age === 6){
-      element.classList.remove('puppyMove')
+      element.classList.remove('movement')
       element.classList.add('turnoff')
+      element2.classList.add('movement')
       element2.classList.remove('turnoff')
 
       alert('Your puppy is now a dog!')
@@ -22,7 +23,7 @@ class Pet {
     document.querySelector('.age').innerText = `Age : ${this.age}`
   }
 //function to increment hunger by 1 and stop the interval when reaches 10 or greater
-  hungerUp = () => {    
+  hungerUp = () => {        
     if (this.hunger >= 10) {
       stopInterval()
       alert('fainted')
@@ -34,10 +35,9 @@ class Pet {
   }
 //function to increment sleepniness by 1 and stop the interval when reaches 10 or greater
   sleepUp = () => {
-    
     if (this.sleepniness >= 10){
       stopInterval()
-      return alert('fainted of sleepniness')
+      alert('fainted of sleepniness')
     } else {
       this.sleepniness += 1
       document.querySelector('.sleepniness').innerText = `Sleepniness : ${this.sleepniness}` 
@@ -76,17 +76,23 @@ let sleepInterval;
 let boredomInterval;
 //function to start the timed interval to increment the features
 const startInterval = () => {
-  hungerinterval = setInterval(myPet.hungerUp, 1000)
-  ageInterval = setInterval(myPet.ageUp, 1000)
-  sleepInterval = setInterval(myPet.sleepUp, 2000)
+  hungerinterval = setInterval(myPet.hungerUp, 3000)
+  ageInterval = setInterval(myPet.ageUp, 500)
+  sleepInterval = setInterval(myPet.sleepUp, 1000)
   boredomInterval = setInterval(myPet.boredomUp, 3000)
 }
-//function to stop the timed interval when the pet faints
+//function to stop the timed interval when the pet faints. Turns off image of pet and turns on fainting image.
 const stopInterval = () => {
   clearInterval(hungerinterval)
   clearInterval(ageInterval)
   clearInterval(sleepInterval)
   clearInterval(boredomInterval)
+  document.querySelector('.dogFainted').classList.remove('turnoff')
+  document.querySelector('#dogContainer').classList.remove('movement')
+  document.querySelector('#dogContainer').classList.add('turnoff')
+  document.querySelector('.dogFainted').classList.add('movement')
+  document.querySelector('#puppyContainer').classList.add('turnoff')
+
 
 }
 //Event listener when "feed" button is clicked it reduces hunger metric by one.
@@ -108,7 +114,6 @@ document.querySelector('#sleep').addEventListener('click', function(){
   document.querySelector('.sleepniness').innerText = `Sleepniness : ${myPet.sleepniness}`
 
 })
-
 
 
 

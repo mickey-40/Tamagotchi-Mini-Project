@@ -6,6 +6,14 @@ body{
   background-size: 90%;
   background-color: darkblue;
 }
+.nameContainer {
+  border: 5px solid brown;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  background-color: bisque;
+  
 }
 h1, h2{
   text-align: center;
@@ -19,17 +27,10 @@ img {
   width: 40%;
   border: 5px solid green;
 }
-.copyRight {
-  position: absolute;
-  left: 10px;
-  bottom: 0;
-  font-size: 8pt;
-}
 
 .imageContainer {
   display: flex;
 }
-
 
 .turnoff {
   visibility: hidden;
@@ -52,34 +53,20 @@ span {
   padding: 10px;
 }
 
-.puppyMove {
+
+.movement {
   
   position: relative;
   animation-name: move1;
-  animation-duration: 1s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
 
 }
 @keyframes move1 {
   0%   {left:0px; top:0px;}
-  25%  {left:200px; top:0px;}
+  25%  {left:50px; top:0px;}
   50%  {left:0px; top:0px;}
-  75%  {left: 200px; top:0px;}
+  75%  {left: 50px; top:0px;}
   100% {left:0px; top:0px;}
 }
 
-.dogMove {
-  
-  position: relative;
-  animation-name: move2;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-
-}
-@keyframes move2 {
-  0%   {left:0px; top:0px;}
-  25%  {left:100px; top:0px;}
-  50%  {left:0px; top:0px;}
-  75%  {left:100px; top:0px;}
-  100% {left:0px; top:0px;}
-}

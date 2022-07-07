@@ -8,13 +8,15 @@
   <title>Pet App</title>
 </head>
 <body id="lights">
-  <h1>Name of You Pet</h1>
-  <h2 class="age">Age : 0</h2>
+  <div class="nameContainer">
+    <h1>Name of You Pet</h1>
+    <h2 class="age">Age : 0</h2>
+  </div>
   <div class="gameContainer">
     <div class="buttonContainer">
       <button id="start">Start</button>
       <button id="feed">Feed</button>
-      <button id="play" onclick="">Play with pet</button>
+      <button id="play">Play with pet</button>
       <button id="sleep">Turn off the lights</button>
   
     </div>
@@ -23,21 +25,20 @@
       <span class="sleepniness">Sleepiness : 0</span>
       <span class="boredom">Boredom : 0</span>
     </div>
-  </div>
-  
+  </div>  
   <div class="imageContainer">
-    <div id="puppyContainer" class="">
+    <div id="puppyContainer" class="movement">
       <img src="img/puppypic.jpg" alt="cartoon puppy" class="puppyImg">
       <!-- <a href='https://www.freepik.com/vectors/dog-cartoon' class="copyRight">Dog cartoon vector created by catalyststuff - www.freepik.com</a> -->
+    </div>
+    <div class="dogFainted turnoff">
+      <img src="img/faintedDog.jpg" alt="" class="">
     </div>
     <div id="dogContainer" class="turnoff">
       <img src="img/adultdogpic.jpg" alt="" class="dogImg">
       <!-- <a href='https://www.freepik.com/vectors/dog-cartoon' class="copyRight">Dog cartoon vector created by catalyststuff - www.freepik.com</a> -->
     </div>
   </div>
-  
-  
-  
   <script src="js/app.js"></script>
   <!-- <a href='https://www.freepik.com/vectors/alien-planet' class="backgroundCopyright">Alien planet vector created by upklyak - www.freepik.com</a> -->
 </body>
