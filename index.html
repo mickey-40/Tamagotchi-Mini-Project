@@ -8,27 +8,31 @@
   <title>Pet App</title>
 </head>
 <body id="lights">
-  <nav>
-    <button id="start" onclick="lightsOff()">Start</button>
-    <button id="feed">Feed</button>
-    <button id="play">Play with pet</button>
-    <button id="sleep" onclick="lightsOff()">Turn off the lights</button>
-
-  </nav>
-  <div>
-    <span class="hunger">Hunger : 0</span>
-    <span class="sleepniness">Sleepiness : 0</span>
-    <span class="boredom">Boredom : 0</span>
-    <span class="age">Age : 0</span>
-  </div>
-  <div class="imageContainer">
-    <div class="puppyContainer">
-      <img src="img/puppypic.jpg" alt="cartoon puppy" class="puppyImg">
-      <a href='https://www.freepik.com/vectors/dog-cartoon' class="copyRight">Dog cartoon vector created by catalyststuff - www.freepik.com</a>
+  <h1>Name of You Pet</h1>
+  <div class="gameContainer">
+    <div class="buttonContainer">
+      <button id="start">Start</button>
+      <button id="feed">Feed</button>
+      <button id="play">Play with pet</button>
+      <button id="sleep">Turn off the lights</button>
+  
     </div>
-    <div class="dogContainer">
+    <div class="statContainer">
+      <span class="hunger">Hunger : 0</span>
+      <span class="sleepniness">Sleepiness : 0</span>
+      <span class="boredom">Boredom : 0</span>
+      <span class="age">Age : 0</span>
+    </div>
+  </div>
+  
+  <div class="imageContainer">
+    <div id="puppyContainer" class="">
+      <img src="img/puppypic.jpg" alt="cartoon puppy" class="puppyImg">
+      <!-- <a href='https://www.freepik.com/vectors/dog-cartoon' class="copyRight">Dog cartoon vector created by catalyststuff - www.freepik.com</a> -->
+    </div>
+    <div id="dogContainer" class="turnoff">
       <img src="img/adultdogpic.jpg" alt="" class="dogImg">
-      <a href='https://www.freepik.com/vectors/dog-cartoon' class="copyRight">Dog cartoon vector created by catalyststuff - www.freepik.com</a>
+      <!-- <a href='https://www.freepik.com/vectors/dog-cartoon' class="copyRight">Dog cartoon vector created by catalyststuff - www.freepik.com</a> -->
     </div>
   </div>
   

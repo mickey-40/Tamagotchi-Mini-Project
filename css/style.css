@@ -1,22 +1,16 @@
 body{
+  background-image: url(../img/spacebackground.jpg);
   background-color: white; 
 }
-.lights-off {
-  background-color: darkblue;
-}
-nav {
-  background-color: beige;
+h1 {
+  text-align: center;
+  border: 5px solid yellow;
 }
 
 img {
-  width: 100%;
+  width: 25%;
+  border: 5px solid green;
 }
-.backgroundCopyright {
-  position: absolute;
-  left: 0;
-  font-size: 10pt;
-}
-
 .copyRight {
   position: absolute;
   left: 10px;
@@ -26,5 +20,31 @@ img {
 
 .imageContainer {
   display: flex;
+  justify-content: center;
+  border: 5px solid rgb(128, 0, 96);
 
+}
+.puppyContainer .dogContainer {
+  display: flex;
+  width: 100px;
+}
+.puppyImg .dogImg {
+  justify-content: center;
+}
+
+.turnoff {
+  /* visibility: hidden; */
+}
+
+.gameContainer {
+  display: flex;
+  justify-items: center;
+  border: 5px solid red;
+  font-size: 11pt;
+}
+.statContainer {
+  border: 5px solid blue;
+}
+.buttonContainer {
+  border: 5px solid purple;
 }
