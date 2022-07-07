@@ -13,35 +13,43 @@ class Pet {
     this.age += 1
     let element = document.querySelector('#puppyContainer')
     let element2 = document.querySelector('#dogContainer')
-    if (this.age > 5){
+    if (this.age === 5){
       element.classList.add('turnoff')
+      element.classList.remove('puppymove')
+      element2.classList.add('dogMove')
       element2.classList.remove('turnoff')
+
+      alert('Your puppy is now a dog!')
     }
     document.querySelector('.age').innerText = `Age : ${this.age}`
+    
 
   }
   hungerUp = () => {
-    if (this.hunger < 10){
-      this.hunger += 1
-      document.querySelector('.hunger').innerText = `Hunger : ${this.hunger}`    
+    if (this.hunger >= 10){
+      return alert('fainted of hunger')
     } else {
-      // return alert('fainted')
+      this.hunger += 1
+      document.querySelector('.hunger').innerText = `Hunger : ${this.hunger}`  
+      
     }
   }
   sleepUp = () => {
-    if (this.sleepniness < 10){
-      this.sleepniness += 1
-      document.querySelector('.sleepniness').innerText = `Sleepniness : ${this.sleepniness}`    
+    if (this.sleepniness === 10){
+      return alert('fainted of sleepniness')
     } else {
-      // return alert('fainted')
+      this.sleepniness += 1
+      document.querySelector('.sleepniness').innerText = `Sleepniness : ${this.sleepniness}` 
     }
   }
+  
   boredomUp = () => {
-    if (this.boredom < 10){
-      this.boredom += 1
-      document.querySelector('.boredom').innerText = `Boredom : ${this.boredom}`    
+    if (this.boredom >= 10){
+      return alert('fainted of boredom')    
     } else {
-      // return alert('fainted')
+      this.boredom += 1
+      document.querySelector('.boredom').innerText = `Boredom : ${this.boredom}`
+      
     }
     
   }
@@ -73,17 +81,19 @@ document.querySelector('#feed').addEventListener('click', function(){
 document.querySelector('#play').addEventListener('click', function(){
   myPet.boredom -= 1
   document.querySelector('.boredom').innerText = `Boredom : ${myPet.boredom}`
+  const movement = document.querySelector('#puppyContainer')
+  movement.classList.add('puppyMove')
+  alert('Once a puppy starts moving it does not stop :)')
+  })
 
-})
+
 document.querySelector('#sleep').addEventListener('click', function(){
   myPet.sleepniness -= 1
   document.querySelector('.sleepniness').innerText = `Sleepniness : ${myPet.sleepniness}`
 
 })
 
-function myStop() {
-  clearInterval(myInterval);
-}
+
 
 
 
