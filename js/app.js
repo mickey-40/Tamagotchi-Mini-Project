@@ -60,6 +60,9 @@ document.querySelector('#start').addEventListener('click', function(){
   document.querySelector('h1').innerText = myPet.name
 //starts incrementing all the metrics
   startInterval()
+  //disables start button after starts
+  const startButton = document.querySelector('#start')
+  startButton.disabled = true
  
 })
 //set element names to enable the ablity to start and stop the interval
