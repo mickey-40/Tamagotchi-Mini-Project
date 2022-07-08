@@ -1,5 +1,5 @@
 //Require pet class
-class Pet {
+class Game {
   constructor(name, hunger = 0, sleepniness = 0, boredom = 0, age = 0) {
     this.name = name
     this.hunger = hunger
@@ -10,16 +10,9 @@ class Pet {
   //function that rises Attributes
   ageUp = () => {
     this.age += 1
-    // let element = document.querySelector('#puppyContainer')
-    // let element2 = document.querySelector('#dogContainer')
     if (this.age === 6){
       changeImageDog()
-      // element.classList.remove('movement')
-      // element.classList.add('turnoff')
-      // element2.classList.add('movement')
-      // element2.classList.remove('turnoff')
-
-      alert('Your puppy is now a dog!')
+      alert(`Puppy ${this.name} is now a dog!`)
     }
     document.querySelector('.age').innerText = `Age : ${this.age}`
   }
@@ -58,7 +51,7 @@ class Pet {
 
 }
 //Instantiate my element to the class
-const myPet = new Pet()
+const myPet = new Game()
 //event listener to start the game
 document.querySelector('#start').addEventListener('click', function(){
   //User enters the name of the pet.
@@ -88,7 +81,7 @@ const stopInterval = () => {
   clearInterval(sleepInterval)
   clearInterval(boredomInterval)
   dogFainted()
-  alert('fainted from neglect')
+  document.querySelector('h2').innerText = (`${myPet.name} fainted from neglect :(`)
 
 }
 //Event listener when "feed" button is clicked it reduces hunger metric by one.
@@ -106,15 +99,25 @@ document.querySelector('#play').addEventListener('click', function(){
 document.querySelector('#sleep').addEventListener('click', function(){
   myPet.sleepniness -= 1
   document.querySelector('.sleepniness').innerText = `Sleepniness : ${myPet.sleepniness}`
+  setTimeout(() => {
+    document.querySelector('body').style.backgroundColor = 'darkblue'
+  }, 200);
 
 })
+//function to change the background color to black
+const lightsOff = () => {
+  document.querySelector('body').style.backgroundColor = 'black'
+}
+
 //function to change image from puppy to dog
 const changeImageDog = () => {
+  //Target the src to change the image
   document.querySelector('.puppyImg').src = 'img/adultdogpic.jpg'
 
 }
 //Function to change image to fainted dog
 const dogFainted = () => {
+  //Target the src to change the image
   document.querySelector('.puppyImg').src = 'img/faintedDog.jpg'
 }
 
