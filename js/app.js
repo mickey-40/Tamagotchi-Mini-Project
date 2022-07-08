@@ -58,7 +58,7 @@ document.querySelector('#start').addEventListener('click', function(){
   myPet.name = window.prompt("Enter your name: ")
   //Replaces the text in the h1 with the user input
   document.querySelector('h1').innerText = myPet.name
-//starts incrementing all the metrics
+  //starts incrementing all the metrics
   startInterval()
   //disables start button after starts
   const startButton = document.querySelector('#start')
