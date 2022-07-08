@@ -7,30 +7,27 @@ body{
   background-color: darkblue;
 }
 .nameContainer {
-  border: 5px solid brown;
+  border: 5px solid black;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  background-color: bisque;
+  background-color: cyan;
   
 }
 h1, h2{
   text-align: center;
   width:100%;
-  color: darkred;
 }
 
 img {
   display: block;
   margin: 25px auto;
-  width: 40%;
+  width: 15%;
   border: 5px solid green;
 }
 
-.imageContainer {
-  display: flex;
-}
+
 
 .turnoff {
   visibility: hidden;
@@ -38,24 +35,32 @@ img {
 
 .gameContainer {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-between;
   font-size: 11pt;
+  height: 100px;
+  background-color: cyan;
+  border: 3px solid black;
+  width: 40%;
+  margin: auto;
 }
 .statContainer {
   margin: auto;
+  
 }
 .buttonContainer {
+  justify-content: space-between;
   margin: auto;
+  
 }
 span {
-  background-color: antiquewhite;
-  border: 3px solid black;
   padding: 10px;
+  font-size: 14pt;
+  font-weight: 400;
 }
 
 
 .movement {
-  
   position: relative;
   animation-name: move1;
   animation-duration: 10s;
@@ -64,9 +69,9 @@ span {
 }
 @keyframes move1 {
   0%   {left:0px; top:0px;}
-  25%  {left:50px; top:0px;}
-  50%  {left:0px; top:0px;}
-  75%  {left: 50px; top:0px;}
+  25%  {left:-50px; top:0px;}
+  50%  {left:100px; top:0px;}
+  75%  {left: -50px; top:0px;}
   100% {left:0px; top:0px;}
 }
 

@@ -10,13 +10,14 @@ class Pet {
   //function that rises Attributes
   ageUp = () => {
     this.age += 1
-    let element = document.querySelector('#puppyContainer')
-    let element2 = document.querySelector('#dogContainer')
+    // let element = document.querySelector('#puppyContainer')
+    // let element2 = document.querySelector('#dogContainer')
     if (this.age === 6){
-      element.classList.remove('movement')
-      element.classList.add('turnoff')
-      element2.classList.add('movement')
-      element2.classList.remove('turnoff')
+      changeImageDog()
+      // element.classList.remove('movement')
+      // element.classList.add('turnoff')
+      // element2.classList.add('movement')
+      // element2.classList.remove('turnoff')
 
       alert('Your puppy is now a dog!')
     }
@@ -26,8 +27,7 @@ class Pet {
   hungerUp = () => {        
     if (this.hunger >= 10) {
       stopInterval()
-      alert('fainted')
-    } else {
+      } else {
       this.hunger += 1
       document.querySelector('.hunger').innerText = `Hunger : ${this.hunger}`  
       
@@ -37,7 +37,6 @@ class Pet {
   sleepUp = () => {
     if (this.sleepniness >= 10){
       stopInterval()
-      alert('fainted of sleepniness')
     } else {
       this.sleepniness += 1
       document.querySelector('.sleepniness').innerText = `Sleepniness : ${this.sleepniness}` 
@@ -46,13 +45,14 @@ class Pet {
   //function to increment boredom by 1 and stop the interval when reaches 10 or greater
   boredomUp = () => {
     if (this.boredom >= 10){
-      stopInterval()
-      return alert('fainted of boredom')    
+      stopInterval()     
     } else {
       this.boredom += 1
       document.querySelector('.boredom').innerText = `Boredom : ${this.boredom}`
       
     }
+   
+
     
   }
 
@@ -75,11 +75,11 @@ let ageInterval;
 let sleepInterval;
 let boredomInterval;
 //function to start the timed interval to increment the features
-const startInterval = () => {
-  hungerinterval = setInterval(myPet.hungerUp, 3000)
-  ageInterval = setInterval(myPet.ageUp, 500)
-  sleepInterval = setInterval(myPet.sleepUp, 1000)
-  boredomInterval = setInterval(myPet.boredomUp, 3000)
+function startInterval() {
+   hungerinterval = setInterval(myPet.hungerUp, 1000)
+   ageInterval = setInterval(myPet.ageUp, 500)
+   sleepInterval = setInterval(myPet.sleepUp, 1500)
+   boredomInterval = setInterval(myPet.boredomUp, 2000)
 }
 //function to stop the timed interval when the pet faints. Turns off image of pet and turns on fainting image.
 const stopInterval = () => {
@@ -87,12 +87,8 @@ const stopInterval = () => {
   clearInterval(ageInterval)
   clearInterval(sleepInterval)
   clearInterval(boredomInterval)
-  document.querySelector('.dogFainted').classList.remove('turnoff')
-  document.querySelector('#dogContainer').classList.remove('movement')
-  document.querySelector('#dogContainer').classList.add('turnoff')
-  document.querySelector('.dogFainted').classList.add('movement')
-  document.querySelector('#puppyContainer').classList.add('turnoff')
-
+  dogFainted()
+  alert('fainted from neglect')
 
 }
 //Event listener when "feed" button is clicked it reduces hunger metric by one.
@@ -104,9 +100,7 @@ document.querySelector('#feed').addEventListener('click', function(){
 document.querySelector('#play').addEventListener('click', function(){
   myPet.boredom -= 1
   document.querySelector('.boredom').innerText = `Boredom : ${myPet.boredom}`
-  // const movement = document.querySelector('#puppyContainer')
-  // movement.classList.add('puppyMove')
-  // alert('Once a puppy starts moving it does not stop :)')
+  
   })
 //Event listener when "Turn off the lights" button is clicked reduces boredom by one.
 document.querySelector('#sleep').addEventListener('click', function(){
@@ -114,10 +108,14 @@ document.querySelector('#sleep').addEventListener('click', function(){
   document.querySelector('.sleepniness').innerText = `Sleepniness : ${myPet.sleepniness}`
 
 })
+//function to change image from puppy to dog
+const changeImageDog = () => {
+  document.querySelector('.puppyImg').src = 'img/adultdogpic.jpg'
 
-
-
-
-
+}
+//Function to change image to fainted dog
+const dogFainted = () => {
+  document.querySelector('.puppyImg').src = 'img/faintedDog.jpg'
+}
 
 
