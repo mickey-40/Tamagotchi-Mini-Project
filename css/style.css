@@ -59,31 +59,50 @@ span {
   font-weight: 400;
 }
 
-/* .movement {
+.movement {
   position: relative;
-  animation-name: move1;
+  animation-name: move;
   animation-duration: 10s;
   animation-iteration-count: infinite;
 
 }
-@keyframes move1 {
+@keyframes move {
   0%   {right:0px; top:0px;}
   25%  {right:100px; top:0px;}
   50%  {right:-100px; top:0px;}
   75%  {right: 100px; top:0px;}
   100% {right:0px; top:0px;}
-} */
+}
 
 
 .flip {
   
   position: relative;
-  animation-name: move2;
-  animation-duration: 5s;
+  animation-name: move1;
+  animation-duration: 1s;
   animation-iteration-count: 1;
 
 }
+@keyframes move1 {
+  0% {transform: rotate(360deg);}
+ 
+
+  
+}
+
+.feed {
+  position: relative;
+  animation-name: move2;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+}
 @keyframes move2 {
-  0%   {right:0px; transform: rotate(360deg); top:0px;}
+  0%   {transform: rotate(0deg)}
+  25%   {transform: rotate(25deg)}
+  50%   {transform: rotate(0deg)}
+  75%   {transform: rotate(-25deg)}
+  100%   {transform: rotate(0deg)}
+  
+  
   
 }

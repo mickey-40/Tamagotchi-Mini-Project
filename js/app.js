@@ -98,8 +98,12 @@ const stopInterval = () => {
 }
 //Event listener when "feed" button is clicked it reduces hunger metric by one.
 document.querySelector('#feed').addEventListener('click', function(){
+  document.querySelector('#puppyContainer').classList.add('feed')
   myPet.hunger -= 1
   document.querySelector('.hunger').innerText = `Hunger : ${myPet.hunger}`
+  setTimeout(() => {
+    document.querySelector('#puppyContainer').classList.remove('feed')
+  }, 500);
 })
 //Event listener when "play with pet" button is clicked reduces boredom by one.
 document.querySelector('#play').addEventListener('click', function(){
@@ -108,7 +112,7 @@ document.querySelector('#play').addEventListener('click', function(){
   document.querySelector('.boredom').innerText = `Boredom : ${myPet.boredom}`
   setTimeout(() => {
     document.querySelector('#puppyContainer').classList.remove('flip')
-  }, 5000);
+  }, 500);
   
   })
 //Event listener when "Turn off the lights" button is clicked reduces boredom by one.
@@ -142,9 +146,7 @@ document.querySelector('#restart').addEventListener('click',function () {
 
 })
 
-const flip = () => {
-  document.querySelector('#puppyContainer').classList.add('flip')
-}
+
 
 
 
