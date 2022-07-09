@@ -85,6 +85,7 @@ const stopInterval = () => {
   clearInterval(boredomInterval)
   dogFainted()
   document.querySelector('h2').innerText = (`${myPet.name} fainted from neglect :(`)
+  document.querySelector('body').style.backgroundColor = 'red'
 
 }
 //Event listener when "feed" button is clicked it reduces hunger metric by one.
