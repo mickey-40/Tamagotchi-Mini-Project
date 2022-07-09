@@ -94,12 +94,14 @@ playWithMe = () => {
   }
   //startOver function
   startOver = () => {
+    //this stops the intervals 
     stopInterval()
-    myPet.age = 0
-    myPet.hunger = 0
-    myPet.boredom = 0
-    myPet.sleepniness = 0
-    myPet.name = 'Name of your pet'
+    //Resets the values to default
+    this.age = 0
+    this.hunger = 0
+    this.boredom = 0
+    this.sleepniness = 0
+    this.name = 'Name of your pet'
     document.querySelector('body').style.backgroundColor = 'darkblue'
     const startButton = document.querySelector('#start')
     startButton.disabled = false
@@ -155,7 +157,7 @@ document.querySelector('#feed').addEventListener('click', myPet.feedMe)
 document.querySelector('#play').addEventListener('click',myPet.playWithMe)
 //Event listener when "Turn off the lights" button is clicked reduces sleepniess by one.
 document.querySelector('#sleep').addEventListener('click', myPet.letMeSleep)
-
+//Event listener to restart the game
 document.querySelector('#restart').addEventListener('click',myPet.startOver)
 
 
