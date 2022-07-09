@@ -103,8 +103,12 @@ document.querySelector('#feed').addEventListener('click', function(){
 })
 //Event listener when "play with pet" button is clicked reduces boredom by one.
 document.querySelector('#play').addEventListener('click', function(){
+  document.querySelector('#puppyContainer').classList.add('flip')
   myPet.boredom -= 1
   document.querySelector('.boredom').innerText = `Boredom : ${myPet.boredom}`
+  setTimeout(() => {
+    document.querySelector('#puppyContainer').classList.remove('flip')
+  }, 5000);
   
   })
 //Event listener when "Turn off the lights" button is clicked reduces boredom by one.
@@ -137,6 +141,10 @@ document.querySelector('#restart').addEventListener('click',function () {
 
 
 })
+
+const flip = () => {
+  document.querySelector('#puppyContainer').classList.add('flip')
+}
 
 
 

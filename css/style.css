@@ -59,8 +59,7 @@ span {
   font-weight: 400;
 }
 
-
-.movement {
+/* .movement {
   position: relative;
   animation-name: move1;
   animation-duration: 10s;
@@ -68,10 +67,23 @@ span {
 
 }
 @keyframes move1 {
-  0%   {left:0px; top:0px;}
-  25%  {left:-50px; top:0px;}
-  50%  {left:100px; top:0px;}
-  75%  {left: -50px; top:0px;}
-  100% {left:0px; top:0px;}
-}
+  0%   {right:0px; top:0px;}
+  25%  {right:100px; top:0px;}
+  50%  {right:-100px; top:0px;}
+  75%  {right: 100px; top:0px;}
+  100% {right:0px; top:0px;}
+} */
 
+
+.flip {
+  
+  position: relative;
+  animation-name: move2;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+
+}
+@keyframes move2 {
+  0%   {right:0px; transform: rotate(360deg); top:0px;}
+  
+}
