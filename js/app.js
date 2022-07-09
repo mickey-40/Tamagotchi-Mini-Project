@@ -97,7 +97,7 @@ const stopInterval = () => {
 }
 //Event listener when "feed" button is clicked it reduces hunger metric by one and makes the image rotate 25 degrees both ways.
 document.querySelector('#feed').addEventListener('click', function(){
-  //targets the div with id puppyContainer and adds feed class to it.
+  //targets the div with id puppyContainer and adds feedPet class to it.
   document.querySelector('#puppyContainer').classList.add('feedPet')
   myPet.hunger -= 1
   document.querySelector('.hunger').innerText = `Hunger : ${myPet.hunger}`
@@ -145,8 +145,6 @@ document.querySelector('#restart').addEventListener('click',function () {
     document.querySelector('.sleepniness').innerText = `Sleepniness : 0`
     document.querySelector('.age').innerText = `Age : 0`
     document.querySelector('.puppyImg').src = 'img/puppypic.jpg'
-
-
 })
 
 

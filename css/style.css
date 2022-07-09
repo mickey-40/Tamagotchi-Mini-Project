@@ -84,10 +84,7 @@ span {
 
 }
 @keyframes move1 {
-  0% {transform: rotate(360deg);}
- 
-
-  
+  0% {transform: rotate(360deg);}  
 }
 
 .feedPet {
