@@ -90,32 +90,35 @@ function startInterval() {
 }
 //function to stop the timed interval when the pet faints. Turns off image of pet and turns on fainting image.
 const stopInterval = () => {
-  // myPet.dogFainted()
   clearInterval(hungerinterval)
   clearInterval(ageInterval)
   clearInterval(sleepInterval)
   clearInterval(boredomInterval) 
 }
-//Event listener when "feed" button is clicked it reduces hunger metric by one.
+//Event listener when "feed" button is clicked it reduces hunger metric by one and makes the image rotate 25 degrees both ways.
 document.querySelector('#feed').addEventListener('click', function(){
-  document.querySelector('#puppyContainer').classList.add('feed')
+  //targets the div with id puppyContainer and adds feed class to it.
+  document.querySelector('#puppyContainer').classList.add('feedPet')
   myPet.hunger -= 1
   document.querySelector('.hunger').innerText = `Hunger : ${myPet.hunger}`
+  //add setTimeout function to it so it stops doing the animation and will do it again when button is pushed.
   setTimeout(() => {
-    document.querySelector('#puppyContainer').classList.remove('feed')
+    document.querySelector('#puppyContainer').classList.remove('feedPet')
   }, 500);
 })
-//Event listener when "play with pet" button is clicked reduces boredom by one.
+//Event listener when "play with pet" button is clicked reduces boredom by one and makes the image rotate 360 degres.
 document.querySelector('#play').addEventListener('click', function(){
+  //targets the div with id puppyContainer and adds flip class to it.
   document.querySelector('#puppyContainer').classList.add('flip')
   myPet.boredom -= 1
   document.querySelector('.boredom').innerText = `Boredom : ${myPet.boredom}`
+  //add setTimeout function to it so it stops doing the animation and will do it again when button is pushed.
   setTimeout(() => {
     document.querySelector('#puppyContainer').classList.remove('flip')
   }, 500);
   
   })
-//Event listener when "Turn off the lights" button is clicked reduces boredom by one.
+//Event listener when "Turn off the lights" button is clicked reduces sleepniess by one.
 document.querySelector('#sleep').addEventListener('click', function(){
   myPet.sleepniness -= 1
   myPet.lightsOff()

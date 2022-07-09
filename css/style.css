@@ -90,7 +90,7 @@ span {
   
 }
 
-.feed {
+.feedPet {
   position: relative;
   animation-name: move2;
   animation-duration: .5s;
