@@ -59,23 +59,76 @@ class Game {
     document.querySelector('h2').innerText = (`${myPet.name} fainted from neglect :(`)
     document.querySelector('body').style.backgroundColor = 'red'
 }
-
+//feedme funciton
+feedMe = () => {
+  //targets the div with id puppyContainer and adds feedPet class to it.
+  document.querySelector('#puppyContainer').classList.add('feedPet')
+  myPet.hunger -= 1
+  document.querySelector('.hunger').innerText = `Hunger : ${myPet.hunger}`
+  //add setTimeout function to it so it stops doing the animation and will do it again when button is pushed.
+  setTimeout(() => {
+    document.querySelector('#puppyContainer').classList.remove('feedPet')
+  }, 500);
 }
-//Instantiate my element to the class
-const myPet = new Game()
-//event listener to start the game
-document.querySelector('#start').addEventListener('click', function(){
+//playWithMe function
+playWithMe = () => {
+  //targets the div with id puppyContainer and adds flip class to it.
+  document.querySelector('#puppyContainer').classList.add('flip')
+  myPet.boredom -= 1
+  document.querySelector('.boredom').innerText = `Boredom : ${myPet.boredom}`
+  //add setTimeout function to it so it stops doing the animation and will do it again when button is pushed.
+  setTimeout(() => {
+    document.querySelector('#puppyContainer').classList.remove('flip')
+  }, 500);
+  
+  }
+  //letMeSleep function
+  letMeSleep = () => {
+    myPet.sleepniness -= 1
+    myPet.lightsOff()
+    document.querySelector('.sleepniness').innerText = `Sleepniness : ${myPet.sleepniness}`
+    setTimeout(() => {
+      document.querySelector('body').style.backgroundColor = 'darkblue'
+    }, 200);
+  
+  }
+  //startOver function
+  startOver = () => {
+    stopInterval()
+    myPet.age = 0
+    myPet.hunger = 0
+    myPet.boredom = 0
+    myPet.sleepniness = 0
+    myPet.name = 'Name of your pet'
+    document.querySelector('body').style.backgroundColor = 'darkblue'
+    const startButton = document.querySelector('#start')
+    startButton.disabled = false
+    document.querySelector('h1').innerText = `Name of your pet`
+    document.querySelector('.hunger').innerText = `Hunger : 0`
+    document.querySelector('.boredom').innerText = `Boredom : 0`
+    document.querySelector('.sleepniness').innerText = `Sleepniness : 0`
+    document.querySelector('.age').innerText = `Age : 0`
+    document.querySelector('.puppyImg').src = 'img/puppypic.jpg'
+}
+//startTheGame function
+startTheGame = () => {
   //User enters the name of the pet.
-  myPet.name = window.prompt("Enter your name: ")
+  this.name = window.prompt("Enter your name: ")
   //Replaces the text in the h1 with the user input
-  document.querySelector('h1').innerText = myPet.name
+  document.querySelector('h1').innerText = this.name
   //starts incrementing all the metrics
   startInterval()
   //disables start button after starts
   const startButton = document.querySelector('#start')
   startButton.disabled = true
  
-})
+}
+}
+//Instantiate my element to the class
+const myPet = new Game()
+//event listener to start the game
+document.querySelector('#start').addEventListener('click', myPet.startTheGame)
+
 //set element names to enable the ablity to start and stop the interval
 let hungerinterval;
 let ageInterval;
@@ -96,56 +149,14 @@ const stopInterval = () => {
   clearInterval(boredomInterval) 
 }
 //Event listener when "feed" button is clicked it reduces hunger metric by one and makes the image rotate 25 degrees both ways.
-document.querySelector('#feed').addEventListener('click', function(){
-  //targets the div with id puppyContainer and adds feedPet class to it.
-  document.querySelector('#puppyContainer').classList.add('feedPet')
-  myPet.hunger -= 1
-  document.querySelector('.hunger').innerText = `Hunger : ${myPet.hunger}`
-  //add setTimeout function to it so it stops doing the animation and will do it again when button is pushed.
-  setTimeout(() => {
-    document.querySelector('#puppyContainer').classList.remove('feedPet')
-  }, 500);
-})
+document.querySelector('#feed').addEventListener('click', myPet.feedMe)
+
 //Event listener when "play with pet" button is clicked reduces boredom by one and makes the image rotate 360 degres.
-document.querySelector('#play').addEventListener('click', function(){
-  //targets the div with id puppyContainer and adds flip class to it.
-  document.querySelector('#puppyContainer').classList.add('flip')
-  myPet.boredom -= 1
-  document.querySelector('.boredom').innerText = `Boredom : ${myPet.boredom}`
-  //add setTimeout function to it so it stops doing the animation and will do it again when button is pushed.
-  setTimeout(() => {
-    document.querySelector('#puppyContainer').classList.remove('flip')
-  }, 500);
-  
-  })
+document.querySelector('#play').addEventListener('click',myPet.playWithMe)
 //Event listener when "Turn off the lights" button is clicked reduces sleepniess by one.
-document.querySelector('#sleep').addEventListener('click', function(){
-  myPet.sleepniness -= 1
-  myPet.lightsOff()
-  document.querySelector('.sleepniness').innerText = `Sleepniness : ${myPet.sleepniness}`
-  setTimeout(() => {
-    document.querySelector('body').style.backgroundColor = 'darkblue'
-  }, 200);
+document.querySelector('#sleep').addEventListener('click', myPet.letMeSleep)
 
-})
-
-document.querySelector('#restart').addEventListener('click',function () {
-    stopInterval()
-    myPet.age = 0
-    myPet.hunger = 0
-    myPet.boredom = 0
-    myPet.sleepniness = 0
-    myPet.name = 'Name of your pet'
-    document.querySelector('body').style.backgroundColor = 'darkblue'
-    const startButton = document.querySelector('#start')
-    startButton.disabled = false
-    document.querySelector('h1').innerText = `Name of your pet`
-    document.querySelector('.hunger').innerText = `Hunger : 0`
-    document.querySelector('.boredom').innerText = `Boredom : 0`
-    document.querySelector('.sleepniness').innerText = `Sleepniness : 0`
-    document.querySelector('.age').innerText = `Age : 0`
-    document.querySelector('.puppyImg').src = 'img/puppypic.jpg'
-})
+document.querySelector('#restart').addEventListener('click',myPet.startOver)
 
 
 
